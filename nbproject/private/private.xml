@@ -8,6 +8,7 @@
             <file>file:/C:/xampp/htdocs/tamatoly/templates/tamatoly/general/features.html.twig</file>
             <file>file:/C:/xampp/htdocs/tamatoly/templates/tamatoly/base.html.twig</file>
             <file>file:/C:/xampp/htdocs/tamatoly/src/Controller/GeneralController.php</file>
+            <file>file:/C:/xampp/htdocs/tamatoly/templates/error.html.twig</file>
         </group>
     </open-files>
 </project-private>
