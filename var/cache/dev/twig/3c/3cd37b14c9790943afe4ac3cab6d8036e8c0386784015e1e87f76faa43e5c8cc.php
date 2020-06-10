@@ -86,25 +86,36 @@ class __TwigTemplate_aa8e812d426d7bac341b0ecf0fb4beb693cefd52a9c33a0adf7835123f3
                     </footer>
                     
                     <div class=\"dVYIqU\">
-                        <a href=\"https://api.whatsapp.com/send?phone=+57";
+                        ";
         // line 20
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 20, $this->source); })()), "whatsapp", [], "any", false, false, false, 20), "html", null, true);
-        echo "&text=Hola!!%20Deseo%20información%20de%20los%20productos\" target=\"_blank\">
-                            <img class=\"img-social-chat\" src=\"";
-        // line 21
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/wp.png")), "html", null, true);
-        echo "\">
-                        </a><br>
-                        <a href=\"https://m.me/";
-        // line 23
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 23, $this->source); })()), "facebook", [], "any", false, false, false, 23), "html", null, true);
-        echo "\" target=\"_blank\">
-                            <img class=\"img-social-chat\" src=\"";
-        // line 24
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/fbmsn.png")), "html", null, true);
-        echo "\">
-                        </a>                        
-                    </div>
+        if ((twig_get_attribute($this->env, $this->source, ($context["result"] ?? null), "whatsapp", [], "any", true, true, false, 20) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 20, $this->source); })()), "whatsapp", [], "any", false, false, false, 20)))) {
+            // line 21
+            echo "                            <a href=\"https://api.whatsapp.com/send?phone=+57";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 21, $this->source); })()), "whatsapp", [], "any", false, false, false, 21), "html", null, true);
+            echo "&text=Hola!!%20Deseo%20información%20de%20los%20productos\" target=\"_blank\">
+                                <img class=\"img-social-chat\" src=\"";
+            // line 22
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/wp.png")), "html", null, true);
+            echo "\">
+                            </a><br>
+                        ";
+        }
+        // line 25
+        echo "                        ";
+        if ((twig_get_attribute($this->env, $this->source, ($context["result"] ?? null), "facebook", [], "any", true, true, false, 25) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 25, $this->source); })()), "facebook", [], "any", false, false, false, 25)))) {
+            // line 26
+            echo "                            <a href=\"https://m.me/";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 26, $this->source); })()), "facebook", [], "any", false, false, false, 26), "html", null, true);
+            echo "\" target=\"_blank\">
+                                <img class=\"img-social-chat\" src=\"";
+            // line 27
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/fbmsn.png")), "html", null, true);
+            echo "\">
+                            </a>                        
+                        ";
+        }
+        // line 30
+        echo "                    </div>
                     
                 </div>
                 
@@ -112,7 +123,7 @@ class __TwigTemplate_aa8e812d426d7bac341b0ecf0fb4beb693cefd52a9c33a0adf7835123f3
                 <nav id=\"nav\">                                                                               
                     <ul>
                         <li><a href=\"";
-        // line 33
+        // line 37
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("general_home");
         echo "\">Inicio</a></li>
                         <li><a href=\"#banner\">Nuestros Productos</a></li>
@@ -147,22 +158,22 @@ class __TwigTemplate_aa8e812d426d7bac341b0ecf0fb4beb693cefd52a9c33a0adf7835123f3
             <!-- Banner -->
             <section id=\"banner\">
                 ";
-        // line 65
-        $this->loadTemplate("./tamatoly/general/banner.html.twig", "tamatoly/general/index.html.twig", 65)->display($context);
-        // line 66
+        // line 69
+        $this->loadTemplate("./tamatoly/general/banner.html.twig", "tamatoly/general/index.html.twig", 69)->display($context);
+        // line 70
         echo "            </section>
             <!-- Carousel -->
             <section class=\"carousel\">
                 ";
-        // line 69
-        $this->loadTemplate("./tamatoly/general/carousel.html.twig", "tamatoly/general/index.html.twig", 69)->display($context);
-        // line 70
+        // line 73
+        $this->loadTemplate("./tamatoly/general/carousel.html.twig", "tamatoly/general/index.html.twig", 73)->display($context);
+        // line 74
         echo "            </section>
             <!-- Main -->
             <div class=\"wrapper style2\">
                 <article id=\"main\" class=\"container special\">
                     <a href=\"#\" class=\"image featured\"><img src=\"";
-        // line 74
+        // line 78
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\HttpFoundationExtension']->generateAbsoluteUrl($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/images/pic06.jpg")), "html", null, true);
         echo "\" alt=\"\" /></a>
                     <header>
@@ -191,17 +202,17 @@ class __TwigTemplate_aa8e812d426d7bac341b0ecf0fb4beb693cefd52a9c33a0adf7835123f3
             <div class=\"wrapper style1\">
                 <section id=\"features\" class=\"container special\">
                     ";
-        // line 100
-        $this->loadTemplate("./tamatoly/general/features.html.twig", "tamatoly/general/index.html.twig", 100)->display($context);
-        // line 101
+        // line 104
+        $this->loadTemplate("./tamatoly/general/features.html.twig", "tamatoly/general/index.html.twig", 104)->display($context);
+        // line 105
         echo "                </section>
             </div>
 
             <!-- Footer -->
             <div id=\"footer\">
                 ";
-        // line 106
-        $this->loadTemplate("./tamatoly/general/footer.html.twig", "tamatoly/general/index.html.twig", 106)->display($context);
+        // line 110
+        $this->loadTemplate("./tamatoly/general/footer.html.twig", "tamatoly/general/index.html.twig", 110)->display($context);
         echo " 
             </div>
         </div>
@@ -227,7 +238,7 @@ class __TwigTemplate_aa8e812d426d7bac341b0ecf0fb4beb693cefd52a9c33a0adf7835123f3
 
     public function getDebugInfo()
     {
-        return array (  204 => 106,  197 => 101,  195 => 100,  166 => 74,  160 => 70,  158 => 69,  153 => 66,  151 => 65,  116 => 33,  104 => 24,  100 => 23,  95 => 21,  91 => 20,  77 => 11,  58 => 3,  35 => 1,);
+        return array (  215 => 110,  208 => 105,  206 => 104,  177 => 78,  171 => 74,  169 => 73,  164 => 70,  162 => 69,  127 => 37,  118 => 30,  112 => 27,  107 => 26,  104 => 25,  98 => 22,  93 => 21,  91 => 20,  77 => 11,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -251,12 +262,16 @@ class __TwigTemplate_aa8e812d426d7bac341b0ecf0fb4beb693cefd52a9c33a0adf7835123f3
                     </footer>
                     
                     <div class=\"dVYIqU\">
-                        <a href=\"https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20información%20de%20los%20productos\" target=\"_blank\">
-                            <img class=\"img-social-chat\" src=\"{{ absolute_url(asset('assets/images/wp.png')) }}\">
-                        </a><br>
-                        <a href=\"https://m.me/{{ result.facebook }}\" target=\"_blank\">
-                            <img class=\"img-social-chat\" src=\"{{ absolute_url(asset('assets/images/fbmsn.png')) }}\">
-                        </a>                        
+                        {% if result.whatsapp is defined and result.whatsapp is not empty %}
+                            <a href=\"https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20información%20de%20los%20productos\" target=\"_blank\">
+                                <img class=\"img-social-chat\" src=\"{{ absolute_url(asset('assets/images/wp.png')) }}\">
+                            </a><br>
+                        {% endif %}
+                        {% if result.facebook is defined and result.facebook is not empty %}
+                            <a href=\"https://m.me/{{ result.facebook }}\" target=\"_blank\">
+                                <img class=\"img-social-chat\" src=\"{{ absolute_url(asset('assets/images/fbmsn.png')) }}\">
+                            </a>                        
+                        {% endif %}
                     </div>
                     
                 </div>
