@@ -18,6 +18,28 @@ class ClientesRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Clientes::class);
     }
+    
+     /**
+     * @return Product[]
+     */
+    public function findAllInfoClient($domain)
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT c, a
+            FROM App\Entity\Clientes c            
+            INNER JOIN App\Entity\Aliados a WITH a.id_cliente = c.id
+            WHERE c.dominio = :dominio
+            AND c.estado = :estado
+            AND a.estado = :estado            
+            ORDER BY c.id ASC'
+        )->setParameter('dominio', $domain)
+        ->setParameter('estado', 1);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 
     // /**
     //  * @return Clientes[] Returns an array of Clientes objects

@@ -2,15 +2,43 @@
     <h3>Contáctenos</h3>
 </header>
 <p>
-    Dirección: {{ result.direccion }}<br>
-    Teléfono: {{ result.telefono }}<br>
-    Celular: {{ result.whatsapp }}
+    {% if result.direccion is defined and result.direccion is not empty %}
+        Dirección: {{ result.direccion }}<br>
+    {% endif %}
+    {% if result.telefono is defined and result.telefono is not empty %}
+        Teléfono: {{ result.telefono }}<br>
+    {% endif %}
+    {% if result.whatsapp is defined and result.whatsapp is not empty %}
+        Celular: {{ result.whatsapp }}
+    {% endif %}
 </p>
 <ul class="icons">
-    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-    <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-    <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
-    <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-    <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
+    {% if result.parametros is defined and result.parametros is not empty %}
+        {% for parametros in json_decode(result.parametros) %}
+            {% set validateRedes = 0 %}
+            {% for index, parametro in parametros %}
+                {% if index == 'redes' %}                
+                    {% set validateRedes = 1 %}
+                    {% for key, redes in parametro %}                    
+                        <li><a href="{{ redes }}" class="icon brands fa-{{key}}"><span class="label">{{ key|capitalize }}</span></a></li>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}        
+                {% if validateRedes == 0 %}
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+        <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+        <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
+    {% endif %}    
 </ul>
