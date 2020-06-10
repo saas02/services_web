@@ -3165,8 +3165,8 @@ body.homepage.is-preload #header:after {
         width: 50px;    
     }
     .img-product{
-        width: 0px !important;
-        height: 0px !important;
+        width: 1px !important;
+        height: 1px !important;
     }
 }
 
