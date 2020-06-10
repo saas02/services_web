@@ -1,5 +1,5 @@
 /*
-	PUBLIC
+    PUBLIC
 */
 
 @import url("fonts_googleapis.css");
@@ -3163,6 +3163,10 @@ body.homepage.is-preload #header:after {
     .img-social-chat{
         height : 50px; 
         width: 50px;    
+    }
+    .img-product{
+        width: 0px !important;
+        height: 0px !important;
     }
 }
 
