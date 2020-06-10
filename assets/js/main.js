@@ -74,6 +74,12 @@
 					target: $body,
 					visibleClass: 'navPanel-visible'
 				});
+                                
+        $('.image-modal').click(function(){
+            var srcImage = $(this).attr('src');
+            $('#modal01').show();
+            $('#img01').attr('src', srcImage);
+        });
 
 	// Carousels.
 		$('.carousel').each(function() {
