@@ -3150,24 +3150,22 @@ body.homepage.is-preload #header:after {
     width: 50px;    
 }
 
-.img-product{
-    width: 336px !important;
-    height: 234px !important;
-}
-
 .img-corporative{
     padding-top: 10%;
+}
+
+@media screen and (min-width: 736px) {    
+    .img-product{
+        width: 336px !important;
+        height: 234px !important;
+    }
 }
 
 @media screen and (max-width: 736px) {
     .img-social-chat{
         height : 50px; 
         width: 50px;    
-    }
-    .img-product{
-        width: 1px !important;
-        height: 1px !important;
-    }
+    }    
 }
 
 .modal {
