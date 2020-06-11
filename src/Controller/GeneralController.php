@@ -36,7 +36,7 @@ class GeneralController extends AbstractController
                         "id" => $cliente->getId(),
                         "nombre" => $cliente->getNombre(),
                         "informacion" => $cliente->getInformacion(),
-                        "fotos" => file_exists($route.'\\public\\assets\\images\\'.$cliente->getFotos()) ? $cliente->getFotos() : 'default.jpg',
+                        "fotos" => file_exists($route.'//public//assets//images//'.$cliente->getFotos()) ? $cliente->getFotos() : 'default.jpg',
                         "parametros" => $cliente->getParametros(),                                   
                     ];
                 }else{
@@ -62,7 +62,7 @@ class GeneralController extends AbstractController
                     "nombre" => $producto->getNombre(),
                     "descripcion" => $producto->getDescripcion(),
                     "precio" => $producto->getPrecio(),
-                    "fotos" => file_exists($route.'\\public\\assets\\images\\'.$producto->getFotos()) ? $producto->getFotos() : 'default.jpg',
+                    "fotos" => file_exists($route.'//public//assets//images//'.$producto->getFotos()) ? $producto->getFotos() : 'default.jpg',
                     "in_home" => $producto->getInHome(),
                     "in_promo" => $producto->getInPromo(),
                 ];
