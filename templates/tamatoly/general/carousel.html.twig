@@ -6,10 +6,12 @@
                 <a class="image featured">
                     <img class="img-product image-modal" src="{{ absolute_url(asset('assets/images/'~producto.fotos)) }}" alt="" />
                 </a>
-                <header>
-                    <h2><a href="#">{{ producto.nombre }}</a></h2>
-                    <h3><p>$ {{ producto.precio|number_format(0, '.', '.') }}</p></h3>                
-                    <p>{{ producto.descripcion }}.</p>
+                <header>                    
+                    <h3><a href="#"><strong>{{ producto.nombre }}</strong></a></h3>
+                    {% if producto.precio is defined and producto.precio > 0 %}
+                        <h3><p>$ {{ producto.precio|number_format(0, '.', '.') }}</p></h3>                
+                    {% endif %}                    
+                    <p>{{ producto.descripcion|capitalize }}.</p>
                 </header>                                    
             </article>
         {% endfor %}    

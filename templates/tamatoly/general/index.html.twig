@@ -10,13 +10,18 @@
             <div id="header">
                 <!-- Inner -->
                 <div class="inner">
-                    <header>
-                        <h1><a href="{{ path("general_home") }}" id="logo">{{ result.nombre|capitalize }}</a></h1>
-                        <hr />
-                        <p>Un Slogan!!!!!!!!!!!!!</p>
+                    <header>                        
+                        <h1>
+                            <img class="icon-img" src="/assets/images/tamatoly.png">
+                            <a href="{{ path("general_home") }}" id="logo">{{ 'tamatoly l & f'|upper }}</a>
+                        </h1>
+                        <hr />                        
+                        {% if parameters[0]['slogan'] is defined %}
+                            <p>{{ parameters[0]['slogan'] }}</p>
+                        {% endif %}
                     </header>
                     <footer>
-                        <a href="#banner" class="button circled scrolly">Invima!</a>
+                        <a href="#banner" class="button circled scrolly invima-icon"></a>
                     </footer>
                     
                     <div class="dVYIqU">
