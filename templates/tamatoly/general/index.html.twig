@@ -1,4 +1,4 @@
-{% extends './tamatoly/base.html.twig' %}
+{% extends './'~result.folder~'/base.html.twig' %}
 
 {% block body %}
     {% if result.parametros is defined and result.parametros is not empty %}
@@ -12,7 +12,7 @@
                 <div class="inner">
                     <header>                        
                         <h1>
-                            <img class="icon-img" src="/assets/images/tamatoly.png">
+                            <img class="icon-img" src="/assets/{{result.folder}}/images/tamatoly.png">
                             <a href="{{ path("general_home") }}" id="logo">{{ 'tamatoly l & f'|upper }}</a>
                         </h1>
                         <hr />                        
@@ -27,12 +27,12 @@
                     <div class="dVYIqU">
                         {% if result.whatsapp is defined and result.whatsapp is not empty %}
                             <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20información%20de%20los%20productos" target="_blank">
-                                <img class="img-social-chat" src="{{ absolute_url(asset('assets/images/wp.png')) }}">
+                                <img class="img-social-chat" src="{{ absolute_url(asset('assets/'~result.folder~'/images/wp.png')) }}">
                             </a><br>
                         {% endif %}
                         {% if result.facebook is defined and result.facebook is not empty %}
                             <a href="https://m.me/{{ result.facebook }}" target="_blank">
-                                <img class="img-social-chat" src="{{ absolute_url(asset('assets/images/fbmsn.png')) }}">
+                                <img class="img-social-chat" src="{{ absolute_url(asset('assets/'~result.folder~'/images/fbmsn.png')) }}">
                             </a>                        
                         {% endif %}
                     </div>
@@ -75,11 +75,11 @@
             {% if result.productos is defined and result.productos is not empty %}
                 <!-- Banner -->
                 <section id="banner">
-                    {% include './tamatoly/general/banner.html.twig' %}
+                    {% include './'~result.folder~'/general/banner.html.twig' %}
                 </section>
                 <!-- Carousel -->
                 <section class="carousel">
-                    {% include './tamatoly/general/carousel.html.twig' %}
+                    {% include './'~result.folder~'/general/carousel.html.twig' %}
                 </section>
             {% endif %}
             
@@ -89,7 +89,7 @@
                     <article id="main" class="container special">
                         {% if parameters[0]['imgcorporative'] is defined %}
                             <a href="#" class="image featured">
-                                <img class="img-corporative" src="{{ absolute_url(asset('assets/images/'~parameters[0]['imgcorporative'])) }}" alt="" />
+                                <img class="img-corporative" src="{{ absolute_url(asset('assets/'~result.folder~'/images/'~parameters[0]['imgcorporative'])) }}" alt="" />
                             </a>
                         {% endif %}                        
                         {% if parameters[0]['mision'] is defined %}
@@ -118,16 +118,16 @@
             {% if result.aliados is defined and result.aliados is not empty %}
                 <div class="wrapper style1">
                     <section id="features" class="container special">
-                        {% include './tamatoly/general/features.html.twig' %}
+                        {% include './'~result.folder~'/general/features.html.twig' %}
                     </section>
                 </div>
             {% endif %}                
 
             <!-- Footer -->
             <div id="footer">
-                {% include './tamatoly/general/footer.html.twig' %} 
+                {% include './'~result.folder~'/general/footer.html.twig' %} 
             </div>
         </div>
-        {% include './tamatoly/general/modal.html.twig' %}
+        {% include './'~result.folder~'/general/modal.html.twig' %}
     </body>
 {% endblock %}

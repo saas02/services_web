@@ -1,0 +1,8 @@
+{# empty Twig template #}
+
+{% for key, aliado in result.aliados %}
+    <li {% if key == 0 %}class="first" {% endif %} >
+        <h3><a>{{ aliado.nombre }}</a></h3>
+        <p>{{ aliado.informacion }}.</p>
+    </li>
+{% endfor %} 

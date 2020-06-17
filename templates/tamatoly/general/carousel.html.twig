@@ -4,7 +4,7 @@
         {% for producto in result.productos %}        
             <article>
                 <a class="image featured">
-                    <img class="img-product image-modal" src="{{ absolute_url(asset('assets/images/'~producto.fotos)) }}" alt="" />
+                    <img class="img-product image-modal" src="{{ absolute_url(asset('assets/'~result.folder~'/images/'~producto.fotos)) }}" alt="" />
                 </a>
                 <header>                    
                     <h3><a href="#"><strong>{{ producto.nombre }}</strong></a></h3>

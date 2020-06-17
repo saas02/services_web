@@ -46,6 +46,11 @@ class Clientes
      * @ORM\Column(type="string", length=100)
      */
     private $dominio;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $folder;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -140,6 +145,18 @@ class Clientes
     public function setDominio(string $dominio): self
     {
         $this->dominio = $dominio;
+
+        return $this;
+    }
+    
+     public function getFolder(): ?string
+    {
+        return $this->folder;
+    }
+
+    public function setFolder(string $folder): self
+    {
+        $this->folder = $folder;
 
         return $this;
     }

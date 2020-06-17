@@ -29,17 +29,18 @@ class GeneralController extends AbstractController
         if(empty($clientes)){
             $renderFile = "error.html.twig";               
         }else{
-            
-            foreach($clientes as $key => $cliente){
-                if($key > 0){
+            $folder = '';
+            foreach($clientes as $key => $cliente){                
+                if($key > 0){                    
                     $result['aliados'][$key] = [
                         "id" => $cliente->getId(),
                         "nombre" => $cliente->getNombre(),
                         "informacion" => $cliente->getInformacion(),
-                        "fotos" => file_exists($route.'//public//assets//images//'.$cliente->getFotos()) ? $cliente->getFotos() : 'default.jpg',
+                        "fotos" => file_exists($route.'//public//assets//'.$folder.'//images//'.$cliente->getFotos()) ? $cliente->getFotos() : 'default.jpg',
                         "parametros" => $cliente->getParametros(),                                   
                     ];
                 }else{
+                    $folder = $cliente->getFolder();
                     $result = [
                         "id" => $cliente->getId(),
                         "nombre" => $cliente->getNombre(),
@@ -48,11 +49,12 @@ class GeneralController extends AbstractController
                         "whatsapp" => $cliente->getWhatsapp(),
                         "facebook" => $cliente->getFacebook(),
                         "dominio" => $cliente->getDominio(),
-                        "parametros" => $cliente->getParametros(),                
+                        "parametros" => $cliente->getParametros(),
+                        "folder" => $folder
                     ];
                 }            
             }
-                        
+            
             $productos = $this->getDoctrine()->getRepository(Producto::class)->findBy(['id_cliente' => $result['id'], 'estado' => 1]); 
             
             foreach($productos as $key => $producto){
@@ -62,17 +64,18 @@ class GeneralController extends AbstractController
                     "nombre" => $producto->getNombre(),
                     "descripcion" => $producto->getDescripcion(),
                     "precio" => $producto->getPrecio(),
-                    "fotos" => file_exists($route.'//public//assets//images//'.$producto->getFotos()) ? $producto->getFotos() : 'default.jpg',
+                    "fotos" => file_exists($route.'//public//assets//'.$folder.'//images//'.$producto->getFotos()) ? $producto->getFotos() : 'default.jpg',
                     "in_home" => $producto->getInHome(),
                     "in_promo" => $producto->getInPromo(),
                 ];
-            }            
+            } 
+            
             $session->set("agency_name", $cliente->getNombre());
             $session->set("agency_info", json_encode($result));
-            $renderFile = $result["nombre"]."/general/index.html.twig";
+            $renderFile = $folder."/general/index.html.twig";
         }            
-                        
         
+                
         return $this->render($renderFile, [ "result" => $result ]);
     }
     

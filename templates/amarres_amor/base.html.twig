@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>                
+        <title>{% block title %}Amarres de Amor{% endblock %}</title>
+        <meta charset="utf-8" />
+        <meta name="keywords" content="amarres de amor" />
+        <meta name="description" content="amarres de amor" />    
+        <link rel="icon" type="image/png" href="{{ absolute_url(asset('assets/'~result.folder~'/images/favicon.png')) }}">
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/default.css')) }}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/fonts.css')) }}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/fonts/fonts.googleapis.css?family=Source+Sans+Pro:200,300,400,600,700,900')) }}" rel="stylesheet" />        
+
+    </head>
+    <body>
+    {% block body %} {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/main.js')) }}"></script>
+    {% endblock %}
+</body>
+</html>

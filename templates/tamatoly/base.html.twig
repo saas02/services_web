@@ -2,29 +2,31 @@
 <html>
     <head>        
         <head>
-            <link rel="icon" type="image/png" href="{{ absolute_url(asset('assets/images/favicon.png')) }}">
+            <link rel="icon" type="image/png" href="{{ absolute_url(asset('assets/'~result.folder~'/images/favicon.png')) }}">
             <title>{% block title %}Tamatoly{% endblock %}</title>
             <meta charset="utf-8" />
+            <meta name="keywords" content="amarres de amor" />
+            <meta name="description" content="amarres de amor" />    
             <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/main.css')) }}" />
-            <noscript><link rel="stylesheet" href="{{ absolute_url(asset('assets/css/noscript.css')) }}" /></noscript>
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/'~result.folder~'/css/main.css')) }}" />
+            <noscript><link rel="stylesheet" href="{{ absolute_url(asset('assets/'~result.folder~'/css/noscript.css')) }}" /></noscript>
             {% block stylesheets %}
                 {{ encore_entry_link_tags('app') }}
             {% endblock %}
 	</head>
     </head>
     <body>
-    {% block body %}{% endblock %}
+    {% block body %} {% endblock %}
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
-        <script src="{{ absolute_url(asset('assets/js/jquery.min.js')) }}"></script>
-        <script src="{{ absolute_url(asset('assets/js/jquery.dropotron.min.js')) }}"></script>
-        <script src="{{ absolute_url(asset('assets/js/jquery.scrolly.min.js')) }}"></script>
-        <script src="{{ absolute_url(asset('assets/js/jquery.scrollex.min.js')) }}"></script>
-        <script src="{{ absolute_url(asset('assets/js/browser.min.js')) }}"></script>
-        <script src="{{ absolute_url(asset('assets/js/breakpoints.min.js')) }}"></script>
-        <script src="{{ absolute_url(asset('assets/js/util.js')) }}"></script>
-        <script src="{{ absolute_url(asset('assets/js/main.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.dropotron.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.scrolly.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.scrollex.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/browser.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/breakpoints.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/util.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/main.js')) }}"></script>
     {% endblock %}
 </body>
 </html>

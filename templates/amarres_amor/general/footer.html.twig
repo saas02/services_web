@@ -1,0 +1,44 @@
+{# empty Twig template #}
+<div id="fbox1">
+    <h2 class="title">Contactenos</h2>
+    {% if result.direccion is defined and result.direccion is not empty %}
+        Dirección: {{ result.direccion }}<br>
+    {% endif %}
+    {% if result.telefono is defined and result.telefono is not empty %}
+        Teléfono: {{ result.telefono }}<br>
+    {% endif %}
+    {% if result.whatsapp is defined and result.whatsapp is not empty %}
+        Celular: {{ result.whatsapp }}
+    {% endif %}    
+</div>
+
+<div id="fbox2">
+    <h2 class="title">Social</h2>
+    <ul class="style1">
+        {% if result.parametros is defined and result.parametros is not empty %}
+        {% for parametros in json_decode(result.parametros) %}
+            {% set validateRedes = 0 %}
+            {% for index, parametro in parametros %}
+                {% if index == 'redes' %}                
+                    {% set validateRedes = 1 %}
+                    {% for key, redes in parametro %}      
+                        <li class="first"><a href="{{ redes }}">{{ key|capitalize }}</a></li>                        
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}        
+                {% if validateRedes == 0 %}
+                    <li class="first"><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Flickr</a></li>
+                    <li><a href="#">Google +</a></li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+        <li class="first"><a href="#">Twitter</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Flickr</a></li>
+        <li><a href="#">Google +</a></li>
+    {% endif %}   
+        
+    </ul>
+</div>

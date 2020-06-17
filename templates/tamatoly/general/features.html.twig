@@ -8,7 +8,7 @@
         {% for aliado in result.aliados %}
             <article class="col-4 col-12-mobile special">
                 <a href="#" class="image featured">
-                    <img class="img-product" src="{{ absolute_url(asset('assets/images/'~aliado.fotos)) }}" alt="" />
+                    <img class="img-product" src="{{ absolute_url(asset('assets/'~result.folder~'/images/'~aliado.fotos)) }}" alt="" />
                 </a>
                 <header>
                     <h3><a href="#">{{ aliado.nombre }}</a></h3>
