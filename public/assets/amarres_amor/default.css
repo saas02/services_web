@@ -517,6 +517,13 @@ ul.contact li a.icon-rss:before { background: #F2600B; }
     width: 70px;    
 }
 
+@media screen and (max-width: 1036px) {
+    .img-social-chat{
+        height : 200px; 
+        width: 200px;    
+    }    
+}
+
 .p-description{
     text-align: justify;
     font-size: small;
