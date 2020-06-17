@@ -517,19 +517,60 @@ ul.contact li a.icon-rss:before { background: #F2600B; }
     width: 70px;    
 }
 
-@media screen and (max-width: 1036px) {
-    .img-social-chat{
-        height : 200px; 
-        width: 200px;    
-    }    
-}
-
 .p-description{
     text-align: justify;
     font-size: small;
     display: none;
     padding-top: 3%;
 }
+
+
+@media screen and (max-width: 1036px) {
+/*    mobile*/
+    .img-social-chat{
+        height : 200px; 
+        width: 200px;    
+    }   
+    
+    #sidebar{
+        width: 95%;
+        font-size: xx-large;
+        float: right;
+        margin-top: 5%;
+    }
+    
+    #content {
+        float: left;
+        width: 95%;
+        margin: 0% 10% 0% 5%;
+    }
+    
+    #fbox1{
+        float: left;
+        width: 30% !important;
+        margin: 10% 10% 10% 10% !important;
+        font-size: xx-large !important;
+    }
+    
+    #tbox1{
+        width: 90% !important;
+        padding: 20px 0px 50px 0px !important;
+        margin: 0% 0% 0% 5% !important;
+    }
+    
+    #tbox1 h2{
+        font-size: 3.5em;
+    }
+    
+    .p-description{
+        font-size: xx-large;
+    }
+    
+    .img-product{
+        width: 100%;
+    }
+}
+
 
 
 

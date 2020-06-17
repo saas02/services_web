@@ -38,7 +38,7 @@
         <div id="three-column" class="container">            
             {% if result.productos is defined and result.productos is not empty %}                 
                 {% for key, producto in result.productos %}                    
-                    <div id="tbox{{key + 1}}">                        
+                    <div id="tbox1">                        
                         <img class="img-product image-modal" src="{{ absolute_url(asset('assets/'~result.folder~'/images/'~producto.fotos)) }}" alt="" />                        
                         <h2><strong>{{ producto.nombre }}</strong></h2>
                         <a class="button read-prod" data-item="{{key + 1}}">Leer mas</a>
@@ -57,8 +57,7 @@
                     <li>* El contenido de este, es único y exclusivamente para mayores de edad (18 años) o personas con la mayoría de edad de acuerdo a las leyes que aplican en cada país.</li>
                     <li>* De acuerdo con las legislaciones vigentes, se establece que las predicciones, videncias psíquicas, lecturas de cartas y hechizos tienen fines de entretenimiento y ayuda personal.</li>
                     <li>* Ninguno de los resultados pueden garantizarse un 100%, todos los resultados pueden variar de persona a persona.</li>
-                </ul>
-                {#<p>This is <strong>WellFormed</strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :) </p>#}
+                </ul>                
             </div>
             
             <div id="clientes">
