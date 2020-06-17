@@ -29,13 +29,17 @@
                 {% if result.whatsapp is defined and result.whatsapp is not empty %}                    
                     <li><a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20información%20de%20los%20productos" target="_blank" accesskey="4" title="">Consulta Gratis</a></li>
                 {% endif %}                
-                {#<li><a href="#" accesskey="5" title="">Contact Us</a></li>#}
             </ul>
         </div>
         <div id="banner" class="container"> 
-            {% include './'~result.folder~'/general/banner.html.twig' %}             
-        </div>
-        <div id="three-column" class="container">            
+            {% include './'~result.folder~'/general/banner.html.twig' %}   
+            {% if parameters[0].banner_message is defined %}
+                <div id="tbox2">
+                    <strong>{{ parameters[0].banner_message }}</strong>
+                </div>
+            {% endif %}
+        </div>        
+        <div id="three-column" class="container">                         
             {% if result.productos is defined and result.productos is not empty %}                 
                 {% for key, producto in result.productos %}                    
                     <div id="tbox1">                        
@@ -80,6 +84,11 @@
         <div id="copyright" class="container">
             <p>&copy; Derechos Reservados. | Diseñado Por: <a rel="nofollow"></a>.</p>
         </div>
+        <button id="myBtn">
+            <a href="#top">
+                <img class="img-arrow" src="{{ absolute_url(asset('assets/'~result.folder~'/images/arrow.png')) }}">
+            </a>
+        </button>
     </body>
 {% endblock %}
 

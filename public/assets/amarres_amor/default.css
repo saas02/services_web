@@ -493,13 +493,20 @@ ul.contact li a.icon-rss:before { background: #F2600B; }
 }
 
 #three-column #tbox1,
-#three-column #tbox2,
 #three-column #tbox3
 {
     float: left;
     width: 300px;
     padding: 50px 50px 80px 50px;  
     text-align: center
+}
+
+#tbox2{
+    width: 95%;
+    font-size: medium;
+    margin: 1% 0% 0% 2%;
+    text-align: justify;
+    box-shadow: 20px 10px 10px 10px rgba(0,0,0,0.75);
 }
 
 
@@ -522,6 +529,28 @@ ul.contact li a.icon-rss:before { background: #F2600B; }
     font-size: small;
     display: none;
     padding-top: 3%;
+}
+
+/*Floating Back-To-Top Button*/
+#myBtn {
+    position: fixed;
+    bottom: 10px;    
+    left: 95%;
+    max-width: 30px;
+    width: 100%;    
+    background-color: rgb(100,100,100);
+    padding: .5px;
+    border-radius: 4px;
+    opacity: 0.5;
+
+}
+/*On Hover Color Change*/
+#myBtn:hover {
+    background-color: #7dbbf1;
+}
+
+.img-arrow{
+    width: 100%
 }
 
 
@@ -569,13 +598,13 @@ ul.contact li a.icon-rss:before { background: #F2600B; }
     .img-product{
         width: 100%;
     }
+    
+    #tbox2{        
+        font-size: small;        
+    }
+    
+    #myBtn {        
+        left: 85%;
+        max-width: 150px;
+    }
 }
-
-
-
-
-
-
-
-
-
