@@ -23,8 +23,7 @@
         {% if app.environment != 'dev' and parameters[0].analytics is defined %}            
             <!-- Global site tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id={{parameters[0].analytics}}"></script>
-            <script>
-                alert("aca");
+            <script>                
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
