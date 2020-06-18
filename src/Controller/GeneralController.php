@@ -24,7 +24,7 @@ class GeneralController extends AbstractController
         
         $clientes = $this->getDoctrine()->getRepository(Clientes::class)->findAllInfoClient($dominio);
         if(empty($clientes)){
-            $clientes = $this->getDoctrine()->getRepository(Clientes::class)->findBy(['dominio' => $dominio]);
+            $clientes = $this->getDoctrine()->getRepository(Clientes::class)->findBy(['dominio' => $dominio, 'estado' => 1]);
         }
         if(empty($clientes)){
             $renderFile = "error.html.twig";               

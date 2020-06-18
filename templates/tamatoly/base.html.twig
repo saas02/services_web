@@ -27,6 +27,21 @@
         <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/breakpoints.min.js')) }}"></script>
         <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/util.js')) }}"></script>
         <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/main.js')) }}"></script>
+        {% if result.parametros is defined and result.parametros is not empty %}
+            {% set parameters = json_decode(result.parametros) %}                
+        {% endif %}
+        {% if app.environment != 'dev' and parameters[0].analytics is defined %}
+            {#UA-147220450-1#}
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{parameters[0].analytics}}"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '{{parameters[0].analytics}}');
+            </script>
+        {% endif %}
     {% endblock %}
 </body>
 </html>
