@@ -255,7 +255,7 @@ ul.contact li a.icon-rss:before { background: #F2600B; }
     white-space: nowrap;
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 700;
-    font-size: 0.80em !important;
+    font-size: 0.80em;
     color: #fff !important;
 }
 
@@ -553,6 +553,9 @@ ul.contact li a.icon-rss:before { background: #F2600B; }
     width: 100%
 }
 
+.button-banner{
+    margin-left: 40%;
+}
 
 @media screen and (max-width: 1036px) {
 /*    mobile*/
@@ -607,4 +610,14 @@ ul.contact li a.icon-rss:before { background: #F2600B; }
         left: 85%;
         max-width: 150px;
     }
+    
+    .button
+    {
+        font-size: 1.8em !important;
+    }
+    
+    .button-banner{
+        margin-left: 30%;
+    }
+    
 }

@@ -10,7 +10,7 @@
         </div>
         <div class="dVYIqU">
             {% if result.whatsapp is defined and result.whatsapp is not empty %}
-                <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20información%20de%20los%20productos" target="_blank">
+                <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank">
                     <img class="img-social-chat" src="{{ absolute_url(asset('assets/'~result.folder~'/images/wp.png')) }}">
                 </a><br>
             {% endif %}
@@ -22,17 +22,18 @@
         </div>
         <div id="menu" class="container">
             <ul>
-                <li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
+                {% if result.whatsapp is defined and result.whatsapp is not empty %}                    
+                    <li class="current_page_item"><a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" accesskey="4" title="">Consulta Gratis</a></li>
+                {% endif %} 
+                <li><a href="#" accesskey="1" title="">Homepage</a></li>
                 <li><a href="#three-column" accesskey="1" title="">Servicios</a></li>
                 <li><a href="#clientes" accesskey="2" title="">Clientes Satisfechos</a></li>
-                <li><a href="#contactenos" accesskey="3" title="">Contactenos</a></li>
-                {% if result.whatsapp is defined and result.whatsapp is not empty %}                    
-                    <li><a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20información%20de%20los%20productos" target="_blank" accesskey="4" title="">Consulta Gratis</a></li>
-                {% endif %}                
+                <li><a href="#contactenos" accesskey="3" title="">Contactenos</a></li>                               
             </ul>
         </div>
-        <div id="banner" class="container"> 
-            {% include './'~result.folder~'/general/banner.html.twig' %}   
+        <div id="banner" class="container">             
+            {% include './'~result.folder~'/general/banner.html.twig' %}               
+            <a class="button button-banner" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank">Consulta Gratis</a>
             {% if parameters[0].banner_message is defined %}
                 <div id="tbox2">
                     <strong>{{ parameters[0].banner_message }}</strong>
@@ -44,7 +45,8 @@
                 {% for key, producto in result.productos %}                    
                     <div id="tbox1">                        
                         <img class="img-product image-modal" src="{{ absolute_url(asset('assets/'~result.folder~'/images/'~producto.fotos)) }}" alt="" />                        
-                        <h2><strong>{{ producto.nombre }}</strong></h2>
+                        <h2><strong>{{ producto.nombre }}</strong></h2>                        
+                        <a class="button" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank">Consulta Gratis</a>
                         <a class="button read-prod" data-item="{{key + 1}}">Leer mas</a>
                         <p class="p-description description_{{key + 1}}">{{ producto.descripcion|capitalize }}.</p>                         
                     </div>                    
@@ -56,14 +58,14 @@
                 <div class="title">
                     <h2>Bienvenido <span class="byline">a {{ result.nombre}}</span></h2>
                 </div>
-                <a href="#" class="image image-full"><img src="{{ absolute_url(asset('assets/'~result.folder~'/images/pic02.jpg')) }}" alt="" /></a>                
+                <a href="#" class="image image-full"><img src="{{ absolute_url(asset('assets/'~result.folder~'/images/pic02.jpg')) }}" alt="" /></a>                                
                 <ul>
                     <li>* El contenido de este, es único y exclusivamente para mayores de edad (18 años) o personas con la mayoría de edad de acuerdo a las leyes que aplican en cada país.</li>
                     <li>* De acuerdo con las legislaciones vigentes, se establece que las predicciones, videncias psíquicas, lecturas de cartas y hechizos tienen fines de entretenimiento y ayuda personal.</li>
                     <li>* Ninguno de los resultados pueden garantizarse un 100%, todos los resultados pueden variar de persona a persona.</li>
                 </ul>                
-            </div>
-            
+                <a class="button button-banner" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank">Consulta Gratis</a>
+            </div>            
             <div id="clientes">
                 <div id="sidebar">
                     <h2 class="title">Clientes Satisfechos</h2>
