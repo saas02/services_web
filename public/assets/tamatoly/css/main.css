@@ -2659,6 +2659,7 @@ body.homepage.is-preload #header:after {
     .carousel article {
         width: 18em;
         margin: 0 1.25em 0 0;
+        box-shadow: 15px 10px 10px #888888;
     }
 
 }
