@@ -30,11 +30,12 @@ class ClientesRepository extends ServiceEntityRepository
             'SELECT c, a
             FROM App\Entity\Clientes c            
             INNER JOIN App\Entity\Aliados a WITH a.id_cliente = c.id
-            WHERE c.dominio = :dominio
+            WHERE c.dominio = :dominio OR c.dominio = :dominio2
             AND c.estado = :estado
             AND a.estado = :estado            
             ORDER BY c.id ASC'
         )->setParameter('dominio', $domain)
+        ->setParameter('dominio2', 'www.'.$domain)
         ->setParameter('estado', 1);
 
         // returns an array of Product objects
