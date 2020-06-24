@@ -1,22 +1,22 @@
 <!-- Features -->
 {% if result.aliados is defined and result.aliados is not empty %}
     <header>
-        <h2>Nuestros Clientes</h2>
-        <p>Ipsum volutpat consectetur orci metus consequat imperdiet duis integer semper magna.</p>
+        <h2>Nuestros Clientes</h2>        
     </header>
     <div class="row">
         {% for aliado in result.aliados %}
             <article class="col-4 col-12-mobile special">
                 <a href="#" class="image featured">
-                    <img class="img-product" src="{{ absolute_url(asset('assets/'~result.folder~'/images/'~aliado.fotos)) }}" alt="" />
+                    <img class="img-featured" src="{{ absolute_url(asset('assets/'~result.folder~'/images/'~aliado.fotos)) }}" alt="" />
                 </a>
                 <header>
                     <h3><a href="#">{{ aliado.nombre }}</a></h3>
                 </header>
-                <p>
-                    Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor etiam
-                    porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer interdum.
-                </p>
+                {% if aliado.informacion is defined and aliado.informacion is not empty %}
+                    <p class="features-info">
+                        <strong>{{ aliado.informacion }}</strong>
+                    </p>
+                {% endif %}                                    
             </article>
         {% endfor %}    
     </div>
