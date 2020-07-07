@@ -25,24 +25,25 @@ class RedesNotificacionesRepository extends ServiceEntityRepository
     public function findDayNetworkNotificacion($domain)
     {
         $entityManager = $this->getEntityManager();
-        $now = date("Y-m-d");
+        $now = date("Y-m-d");        
         
-        $query = $entityManager->createQuery(
-            'SELECT r, c
-            FROM App\Entity\RedesNotificaciones r
-            INNER JOIN App\Entity\Clientes c WITH r.id_cliente = c.id
-            WHERE c.dominio = :dominio OR c.dominio = :dominio2
-            AND c.estado = :estado            
-            AND r.fecha > :fechaini AND r.fecha < :fechafin
-            ORDER BY c.id ASC'
-        )->setParameter('dominio', $domain)
-        ->setParameter('dominio2', 'www.'.$domain)
-        ->setParameter('fechaini', $now.' 00:00:00')
-        ->setParameter('fechafin', $now.' 23:59:00')
-        ->setParameter('estado', 1);
-
+        $sub = $entityManager->createQueryBuilder()
+            ->select('cli.id')
+            ->from('App\Entity\Clientes', 'cli')
+            ->where("cli.dominio = '".$domain."' OR cli.dominio = 'www.".$domain."'");
+            $fechaIni = $now." 00:00:00";
+            $fechaFin = $now." 23:59:00";
+        $query = $entityManager->createQueryBuilder()
+            ->select('r')
+            ->from('App\Entity\RedesNotificaciones', 'r')        
+            ->where("r.fecha >= '".$fechaIni."'")
+            ->andWhere("r.fecha <= '".$fechaFin."'")
+            ->andWhere($sub->expr()->In('r.id_cliente', $sub->getDQL()));                
+        
+        //echo $query->getDQL();die;
+        
         // returns an array of Product objects
-        return $query->getResult();
+        return $query->getQuery()->getResult();
     }
 
     // /**
