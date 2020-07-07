@@ -11,7 +11,7 @@ import '../css/app.css';
 //import '../js/jquery.min.js';
 //import jQuery from 'jquery';
 //import '../js/main.js';
-//import '../js/util.js';
+import '../js/common.js';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';

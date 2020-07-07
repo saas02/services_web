@@ -24,15 +24,15 @@
                         <a href="#banner" class="button circled scrolly invima-icon"></a>
                     </footer>
                     
-                    <div class="dVYIqU">
+                    <div class="dVYIqU">                        
                         {% if result.whatsapp is defined and result.whatsapp is not empty %}
                             <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20información%20de%20los%20productos" target="_blank">
-                                <img class="img-social-chat" src="{{ absolute_url(asset('assets/'~result.folder~'/images/wp.png')) }}">
+                                <img class="img-social-chat buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}" src="{{ absolute_url(asset('assets/'~result.folder~'/images/wp.png')) }}">
                             </a><br>
                         {% endif %}
                         {% if result.facebook is defined and result.facebook is not empty %}
                             <a href="https://m.me/{{ result.facebook }}" target="_blank">
-                                <img class="img-social-chat" src="{{ absolute_url(asset('assets/'~result.folder~'/images/fbmsn.png')) }}">
+                                <img class="img-social-chat buttonNetwork" data-network="{{ result.notificaciones["facebook"] }}" src="{{ absolute_url(asset('assets/'~result.folder~'/images/fbmsn.png')) }}">
                             </a>                        
                         {% endif %}
                     </div>

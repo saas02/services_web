@@ -13,8 +13,7 @@
     </head>
     <body>
     {% block body %} {% endblock %}
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
+    {% block javascripts %}        
         <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.min.js')) }}"></script>
         <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/main.js')) }}"></script>
         {% if result.parametros is defined and result.parametros is not empty %}
@@ -31,6 +30,7 @@
               gtag('config', '{{parameters[0].analytics}}');
             </script>
         {% endif %}
+        {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </body>
 </html>
