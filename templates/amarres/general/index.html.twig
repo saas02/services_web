@@ -189,14 +189,14 @@
                                 </div>
                             </div>
                         {% endif %}
-                        {% if result.telefono is defined %}
+                        {% if parameters[0].email is defined %}
                             <div class="col-md-4 col-sm-4">
                                 <!-- contact item -->
                                 <div class="contact-item ">
                                     <!-- big icon -->
                                     <i class="fa fa-wifi"></i>
                                     <!-- contact details  -->
-                                    <span class="contact-details">music.site@melodi.com</span>
+                                    <span class="contact-details">parameters[0].email</span>
                                 </div>
                             </div>
                         {% endif %}
