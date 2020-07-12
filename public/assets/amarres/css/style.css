@@ -64,7 +64,7 @@ hr{
 }
 
 
-.pad {padding: 130px 0px;}
+.pad {padding: 60px 0px;}
 
 .parallax-one { background: url('../img/promo/p1.jpg') fixed 50%;}
 .parallax-two { background: url('../img/background/overlay.png'), url('../img/promo/p2.jpg') fixed 50%;}
@@ -1129,6 +1129,18 @@ footer .copy-right {
         
         .default-heading h2{
             font-size: 35px !important;
+        }
+        
+        .carousel-inner .item img{
+            margin-top: 20% !important;
+        }
+        
+        .slide-one h2{
+            font-size: 20px !important;
+        }
+        
+        .carousel-caption{
+            padding-top: 0px !important
         }
 }
 
