@@ -41,12 +41,20 @@
                 
                 <!-- Nav -->
                 <nav id="nav">                                                                               
-                    <ul>
+                    <ul>                        
                         <li><a href="{{ path("general_home") }}">Inicio</a></li>
                         <li><a href="#banner">Nuestros Productos</a></li>
                         <li><a href="#main">Nosotros</a></li>
                         <li><a href="#features">Nuestros Clientes</a></li>
-                        <li><a href="#contact">Contáctenos</a></li>
+                        <li><a href="#contact">Contáctenos</a></li>                        
+                        {% if result.whatsapp is defined and result.whatsapp is not empty %}
+                            <li class="wp-li">                                
+                                <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20información%20de%20los%20productos" target="_blank" class="buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                                    Cotiza Aquí!!!<br>
+                                    <img src="{{ absolute_url(asset('assets/'~result.folder~'/images/whatsapp.svg')) }}" alt="Cotiza Aquí!!!">
+                                </a>                        
+                            </li>
+                        {% endif %}
                         <!--<li>
                             <a href="#">Dropdown</a>
                             <ul>

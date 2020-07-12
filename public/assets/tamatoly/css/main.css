@@ -3207,18 +3207,33 @@ body.homepage.is-preload #header:after {
 	top:1px;
 }
 
+.wp-li{
+    margin-top: -3% !important;
+}
+
+.wp-li a{    
+    margin-top: 10% !important;    
+}
+
+.wp-li img{
+    margin-top: 10px !important;
+}
+
 @media screen and (min-width: 736px) {    
 /*    .img-product{
         width: 100% !important;
         height: 100% !important;
-    }*/
+    }*/    
 }
 
 @media screen and (max-width: 736px) {
     .img-social-chat{
         height : 50px; 
         width: 50px;    
-    }    
+    } 
+    .wp-li img{    
+        visibility:hidden
+    }
 }
 
 .modal {
