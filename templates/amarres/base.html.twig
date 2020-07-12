@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>                
+        <title>{% block title %}Amarres{% endblock %}</title>
+        <meta charset="utf-8" />
+        <meta name="keywords" content="amarres de amor" />
+        <meta name="description" content="amarres de amor" />  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{{ absolute_url(asset('assets/'~result.folder~'/img/logo/favicon.png')) }}">
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/bootstrap.min.css')) }}" rel="stylesheet" />
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/animate.min.css')) }}" rel="stylesheet" />
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/owl.carousel.css')) }}" rel="stylesheet" />
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/font-awesome.min.css')) }}" rel="stylesheet" />
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/style.css')) }}" rel="stylesheet" />
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/style-color.css')) }}" rel="stylesheet" />
+    </head>
+    <body>
+    {% block body %} {% endblock %}
+    {% block javascripts %}        
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/bootstrap.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/waypoints.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/owl.carousel.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.nav.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/respond.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/html5shiv.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/custom.js')) }}"></script>
+        {% if result.parametros is defined and result.parametros is not empty %}
+            {% set parameters = json_decode(result.parametros) %}                
+        {% endif %}
+        {% if app.environment != 'dev' and parameters[0].analytics is defined %}            
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ parameters[0].analytics }}"></script>
+            <script>                
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '{{parameters[0].analytics}}');
+            </script>
+        {% endif %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</body>
+</html>

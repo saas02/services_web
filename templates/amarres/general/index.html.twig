@@ -1,0 +1,231 @@
+{# empty Twig template #}
+{% extends './'~result.folder~'/base.html.twig' %}
+{% block body %}
+    {% if result.parametros is defined and result.parametros is not empty %}
+        {% set parameters = json_decode(result.parametros) %}                
+    {% endif %}
+    <body>        
+
+        <!-- wrapper -->
+        <div class="wrapper" id="home">
+
+            <!-- header area -->
+            <header>
+                <div class="dVYIqU">
+                    {% if result.whatsapp is defined and result.whatsapp is not empty %}
+                        <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank">
+                            <img class="img-social-chat buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}" src="{{ absolute_url(asset('assets/'~result.folder~'/images/wp.png')) }}">
+                        </a><br>
+                    {% endif %}
+                    {% if result.facebook is defined and result.facebook is not empty %}
+                        <a href="https://m.me/{{ result.facebook }}" target="_blank">
+                            <img class="img-social-chat buttonNetwork" data-network="{{ result.notificaciones["facebook"] }}" src="{{ absolute_url(asset('assets/'~result.folder~'/images/fbmsn.png')) }}">
+                        </a>                        
+                    {% endif %}
+                </div>
+                <!-- secondary menu -->
+                <nav class="secondary-menu">
+                    <div class="container">
+                        <!-- secondary menu left link area -->
+                        <div class="sm-left">
+                            {% if result.telefono is defined and result.telefono is not empty %}                                
+                                <strong>Télefono</strong>:&nbsp; {{ result.telefono }}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            {% endif %}                                                        
+                        </div>
+                        <!-- secondary menu right link area -->
+                        <div class="sm-right">
+                            <div class="sm-social-link">
+                            {% if result.parametros is defined and result.parametros is not empty %}                            
+                                {% for parametros in json_decode(result.parametros) %}
+                                    {% set validateRedes = 0 %}
+                                    {% for index, parametro in parametros %}
+                                        {% if index == 'redes' %}                
+                                            {% set validateRedes = 1 %}
+                                            {% for key, redes in parametro %}                                                
+                                                <a class="h-facebook" href="{{ redes }}"><i class="fa fa-{{ key|capitalize }}"></i></a>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}        
+                                    {% if validateRedes == 0 %}
+                                        <!-- social link -->                                
+                                        <a class="h-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                                        <a class="h-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                                        <a class="h-google" href="#"><i class="fa fa-google-plus"></i></a>
+                                        <a class="h-linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}                            
+                                    <!-- social link -->                                
+                                    <a class="h-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                                    <a class="h-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                                    <a class="h-google" href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a class="h-linkedin" href="#"><i class="fa fa-linkedin"></i></a>                                
+                            {% endif %}
+                            </div>
+                        </div>                        
+                        <div class="clearfix"></div>
+                    </div>
+                </nav>
+                <!-- primary menu -->
+                <nav class="navbar navbar-fixed-top navbar-default">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- logo area -->
+                            <a class="navbar-brand" href="#home">
+                                <!-- logo image -->
+                                <img class="img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/img/logo/logo.png')) }}" alt="" />
+                            </a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                                        <i class="fa fa-whatsapp fa-6">
+                                            Consulta Gratis!!!
+                                        </i>
+                                    </a>
+                                </li>
+                                <li><a href="#portfolio">Servicios</a></li> 
+                                <li><a href="#joinus">Nosotros</a></li>                                                               
+                                <li><a href="#team">Testimonios</a></li>
+                                <li><a href="#contact">Contáctenos</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!--/ header end -->
+
+            <!-- banner area -->
+            <div class="banner">
+                {% include './'~result.folder~'/general/banner.html.twig' %} 
+            </div>
+            <!--/ banner end -->
+
+            <!-- block for animate navigation menu -->
+            <div class="nav-animate"></div>   
+            
+            <div class="featured pad" id="portfolio">
+                <div class="container">
+                    <!-- default heading -->
+                    <div class="default-heading">
+                        <!-- heading -->
+                        <h2>Servicios</h2>
+                    </div>
+                    <!-- featured album elements -->
+                    <div class="featured-element">
+                        <div class="row">
+                            {% include './'~result.folder~'/general/portfolio.html.twig' %}                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- features end -->
+            
+            
+            {% if parameters[0].banner_message is defined %}
+                <!-- news letter -->
+                <div class="news-letter" id="joinus">
+                    <div class="container">
+                        <!-- news letter inner content -->
+                        <div class="news-content ">
+                            <!-- heading -->                        
+                            <!-- paragraph -->
+                            <p><strong>Amarres de amor</strong> {{ parameters[0].banner_message }}.</p>
+                            <!-- subscribe form -->                            
+                        </div>
+                    </div>
+                </div>
+                <!-- news letter end -->                                       
+            {% endif %}
+            
+
+            <!-- about -->
+            <div class="about" id="team">
+                <div class="container">
+                    <!-- default heading -->
+                    <div class="default-heading">
+                        <!-- heading -->
+                        <h2>Testimonios</h2>
+                    </div>
+                    <!-- about what we are like content -->
+                    <div class="about-what-we">
+                        <div class="row">
+                            {% include './'~result.folder~'/general/features.html.twig' %} 
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- about end -->            
+
+            <!-- contact -->
+            <div class="contact pad" id="contact">
+                <div class="container">
+                    <!-- default heading -->
+                    <div class="default-heading">
+                        <!-- heading -->
+                        <h2>Contáctenos</h2>
+                    </div>
+                    
+                    <div class="row">	
+                        {% if result.direccion is defined %}
+                            <div class="col-md-4 col-sm-4">
+                                <!-- contact item -->
+                                <div class="contact-item ">
+                                    <!-- big icon -->
+                                    <i class="fa fa-street-view"></i>
+                                    <!-- contact details  -->
+                                    <span class="contact-details">{{ result.direccion }}</span>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if result.telefono is defined %}
+                            <div class="col-md-4 col-sm-4">
+                                <!-- contact item -->
+                                <div class="contact-item ">
+                                    <!-- big icon -->
+                                    <i class="fa fa-wifi"></i>
+                                    <!-- contact details  -->
+                                    <span class="contact-details">music.site@melodi.com</span>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if result.telefono is defined %}
+                            <div class="col-md-4 col-sm-4">
+                                <!-- contact item -->
+                                <div class="contact-item ">
+                                    <!-- big icon -->
+                                    <i class="fa fa-phone"></i>
+                                    <!-- contact details  -->
+                                    <span class="contact-details">{{ result.telefono }}</span>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>                    
+
+                </div>
+            </div>
+            <!-- contact end -->
+
+            <!-- footer -->
+            <footer>
+                {% include './'~result.folder~'/general/footer.html.twig' %} 
+            </footer>
+            <!-- footer end -->
+
+            <!-- Scroll to top -->
+            <span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span> 
+
+        </div>
+    </body>
+{% endblock %}
