@@ -15,6 +15,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class GeneralController extends AbstractController
 {
+    
+    public function __construct(\Swift_Mailer $mailer) {        
+        $this->mailer = $mailer;
+        $this->notifyClics = 10;
+    }
+    
     /**
      * @Route("/", name="general_home")
      */
@@ -128,6 +134,10 @@ class GeneralController extends AbstractController
                         $entityManager->flush();
                         $message = 'success';
                         $code = 200;
+                        if($total > $this->notifyClics){
+                            $emails = ["saas02@gmail.com", "sergio.amaya@aviatur.com"];
+                            $this->sendEmail($cliente[0]->getId(), $total, $emails);
+                        }                         
                     }catch(\Exception $e){
                         $message = $e->getMessage();
                         $code = 500;
@@ -144,15 +154,18 @@ class GeneralController extends AbstractController
                             } else {
                                $parametros[$k] = $v; 
                             }
-                        }                    
-
+                        }
                         $notificaciones[0]->setParametros(json_encode($parametros));
                         $notificaciones[0]->setTotal($total);
                         $notificaciones[0]->setFecha(new \DateTime());
                         $entityManager->persist($notificaciones[0]);                
                         $entityManager->flush();
                         $message = 'success';
-                        $code = 200;
+                        $code = 200;    
+                        if($total > $this->notifyClics){
+                            $emails = ["saas02@gmail.com", "sergio.amaya@aviatur.com"];
+                            $this->sendEmail($notificaciones[0]->getIdCliente(), $total, $emails);
+                        }                        
                     }catch(\Exception $e){
                         $message = $e->getMessage();
                         $code = 500;
@@ -170,6 +183,27 @@ class GeneralController extends AbstractController
         
         $result = ["code" => $code, "message" => $message];
         return new JsonResponse($result);  
+    }
+    
+    public function sendEmail($clienteId, $total, $emails){
+        $cliente = $this->getDoctrine()->getRepository(Clientes::class)->findBy(['id' => $clienteId]);
+        
+        $message = (new \Swift_Message('Adwords Email '.$cliente[0]->getNombre()))
+            ->setFrom('serviceswebsaas@gmail.com')
+            ->setTo($emails)
+            ->setBody(
+                $this->renderView('email.html.twig',
+                [
+                    'cliente' => $cliente[0],
+                    'total' => $total
+                ]
+            ),'text/html');        
+        try{
+            $this->mailer->send($message);
+        }catch(\Swift_TransportException $e){
+            return var_dump($e);die;
+        }
+                
     }
     
     public function encrypt($string)
