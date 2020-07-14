@@ -1,0 +1,29 @@
+{# empty Twig template #}
+{% if result.aliados is defined and result.aliados is not empty %}
+    <div class="container">
+        <div class="testimonials">
+            <div class="swiper-container test-slider">
+                <div class="swiper-wrapper">
+                    {% for aliado in result.aliados %}                        
+                        <div class="swiper-slide text-center">
+                            <div class="row">
+                                <div class="offset-lg-1 col-lg-10">
+                                    <div class="test-img" data-aos="fade-up" data-aos-delay="0" data-aos-offset="0">
+                                        <img src="{{ absolute_url(asset('assets/'~result.folder~'/images/test1.png')) }}">
+                                    </div>
+                                    <h5 data-aos="fade-up" data-aos-delay="800" data-aos-duration="800" data-aos-offset="0">
+                                        {{ aliado.nombre }}
+                                    </h5>                                    
+                                    <p data-aos="fade-up" data-aos-delay="800" data-aos-duration="800" data-aos-offset="0">
+                                        {{ aliado.informacion }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="test-pagination"></div>
+            </div>
+        </div>        
+    </div>
+{% endif %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>                
+        <title>{% block title %}Ataduras{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <link rel="icon" type="image/png" href="{{ absolute_url(asset('assets/'~result.folder~'/images/favicon.png')) }}">                
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i%7CRajdhani:400,600,700"
+        rel="stylesheet">
+        <!-- Plugins Stylesheets -->
+        <link rel="stylesheet" href="{{ absolute_url(asset('assets/'~result.folder~'/css/loader/loaders.css')) }}">
+        <link rel="stylesheet" href="{{ absolute_url(asset('assets/'~result.folder~'/css/font-awesome/font-awesome.css')) }}">
+        <link rel="stylesheet" href="{{ absolute_url(asset('assets/'~result.folder~'/css/bootstrap.css')) }}">
+        <link rel="stylesheet" href="{{ absolute_url(asset('assets/'~result.folder~'/css/aos/aos.css')) }}">
+        <link rel="stylesheet" href="{{ absolute_url(asset('assets/'~result.folder~'/css/swiper/swiper.css')) }}">
+        <link rel="stylesheet" href="{{ absolute_url(asset('assets/'~result.folder~'/css/lightgallery.min.css')) }}">
+        <!-- Template Stylesheet -->
+        <link rel="stylesheet" href="{{ absolute_url(asset('assets/'~result.folder~'/css/style.css')) }}">
+        <!-- Responsive Stylesheet -->
+        <link rel="stylesheet" href="{{ absolute_url(asset('assets/'~result.folder~'/css/responsive.css')) }}">
+        
+    </head>
+    <body>
+    {% block body %} {% endblock %}
+    {% block javascripts %}                
+        
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery-3.3.1.js')) }}"></script>
+        <!--Plugins-->
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/bootstrap.bundle.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/loaders.css.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/aos.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/swiper.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/lightgallery-all.min.js')) }}"></script>
+        <!--Template Script-->
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/main.js')) }}"></script>
+        
+        {% if result.parametros is defined and result.parametros is not empty %}
+            {% set parameters = json_decode(result.parametros) %}                
+        {% endif %}
+        {% if app.environment != 'dev' and parameters[0].analytics is defined %}            
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ parameters[0].analytics }}"></script>
+            <script>                
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '{{parameters[0].analytics}}');
+            </script>
+        {% endif %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</body>
+</html>

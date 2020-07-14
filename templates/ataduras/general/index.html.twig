@@ -1,0 +1,205 @@
+{% extends './'~result.folder~'/base.html.twig' %}
+{% block body %}
+    {% if result.parametros is defined and result.parametros is not empty %}
+        {% set parameters = json_decode(result.parametros) %}                
+    {% endif %}
+    <body>
+        <!-- Loader Start -->
+    <div class="css-loader">
+        <div class="loader-inner line-scale d-flex align-items-center justify-content-center"></div>
+    </div>
+    <!-- Loader End -->
+    <!-- Header Start -->
+    <header class="position-absolute w-100">
+        <div class="container">
+            <div class="top-header d-none d-sm-flex justify-content-between align-items-center">
+                <div class="contact">
+                    {% if result.telefono is defined and result.telefono is not empty %}                        
+                        <a class="tel"><i class="fa fa-phone" aria-hidden="true"></i>{{ result.telefono }}</a>
+                    {% endif %}  
+                    {% if parameters[0].email is defined %}
+                        <a><i class="fa fa-envelope" aria-hidden="true"></i>{{ parameters[0].email }}</a>
+                    {% endif %}                    
+                </div>
+                <nav class="d-flex aic">                    
+                    <ul class="nav social d-none d-md-flex">
+                        {% if result.parametros is defined and result.parametros is not empty %}                            
+                            {% for parametros in json_decode(result.parametros) %}
+                                {% set validateRedes = 0 %}
+                                {% for index, parametro in parametros %}
+                                    {% if index == 'redes' %}                
+                                        {% set validateRedes = 1 %}
+                                        {% for key, redes in parametro %}                                            
+                                            <li><a href="{{ redes }}" target="_blank"><i class="fa fa-{{ key|lower }}"></i></a></li>                                            
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}        
+                                {% if validateRedes == 0 %}
+                                    <!-- social link -->                                    
+                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}                            
+                                <!-- social link -->                                
+                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" href="index.html"><img src="{{ absolute_url(asset('assets/'~result.folder~'/images/logo.png')) }}"></a>
+                <div class="group d-flex align-items-center">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation"><span
+                            class="navbar-toggler-icon"></span>
+                    </button>                                        
+                </div>                
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portafolio">Nuestros Servicios</a></li>                        
+                        <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contactenos">Contactenos</a></li>
+                    </ul>                    
+                </div>
+            </nav>
+        </div>        
+    </header>
+    <!-- Header End -->
+    <!-- Hero Start -->
+    {% if result.productos is defined and result.productos is not empty %}  
+        {% include './'~result.folder~'/general/banner.html.twig' %}        
+    {% endif %}    
+    <!-- Hero End -->
+    <!-- Call To Action Start -->
+    {% if parameters[0].banner_message is defined %}
+        <section id="nosotros" class="cta" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="cta-content d-xl-flex align-items-center justify-content-around text-center text-xl-left">
+                    <div class="content" data-aos="fade-right" data-aos-delay="200">                        
+                        <p class = "banner-message">{{ parameters[0].banner_message }}.</p>
+                    </div>
+                    <div class="subscribe-btn" data-aos="fade-left" data-aos-delay="400" data-aos-offset="0">                        
+                        {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                            <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="btn btn-primary buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                                Consulta Gratis
+                            </a>                        
+                        {% endif %}                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+    
+    <div class="dVYIqU">
+        {% if result.whatsapp is defined and result.whatsapp is not empty %}
+            <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank">
+                <img class="img-social-chat buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}" src="{{ absolute_url(asset('assets/'~result.folder~'/images/wp.png')) }}">
+            </a><br>
+        {% endif %}
+        {% if result.facebook is defined and result.facebook is not empty %}
+            <a href="https://m.me/{{ result.facebook }}" target="_blank">
+                <img class="img-social-chat buttonNetwork" data-network="{{ result.notificaciones["facebook"] }}" src="{{ absolute_url(asset('assets/'~result.folder~'/images/fbmsn.png')) }}">
+            </a>                        
+        {% endif %}
+    </div>
+    
+    <!-- Call To Action End -->
+    <!-- Services Start -->
+    <section class="services"></section>
+    <!-- Services End -->
+    <!-- Featured Start -->
+    <section id="banner" class="featured">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right" data-aos-delay="400" data-aos-duration="800">
+                    <div class="title">                        
+                        <h1 class="title-blue">Ataduras de amor.</h1>
+                    </div>
+                    <p>El amor es sin duda uno de los aspectos de la vida que más quebraderos de cabeza genera en las personas, debido en la mayoría de las ocasiones a que ninguna de las partes es capaz de llegar a un entendimiento. Hay ciertos momentos en los que una relación se viene abajo, y sea por cual sea el motivo, la situación anterior nunca vuelve a ser igual en la pareja.</p>
+                                        
+                    {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                        <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="btn btn-primary buttonNetwork" data-aos="fade-right" data-aos-delay="900" data-network="{{ result.notificaciones["whatsapp"] }}">
+                            Consulta Gratis
+                        </a>                        
+                    {% endif %}
+                </div>
+                <div class="col-md-6" data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
+                    <div class="featured-img">
+                        <img class="featured-big" src="{{ absolute_url(asset('assets/'~result.folder~'/images/featured-img1.jpg')) }}" alt="Featured 1">
+                        <img class="featured-small" src="{{ absolute_url(asset('assets/'~result.folder~'/images/featured-img2.jpg')) }}" alt="Featured 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured End -->    
+      
+    <!-- Pricing Start -->
+    <section id="portafolio" class="pricing-table">
+        {% include './'~result.folder~'/general/portafolio.html.twig' %}        
+    </section>
+    <!-- Pricing End -->
+    <!-- Testimonial and Clients Start -->
+    <section id="testimonios" class="testimonial-and-clients">
+        {% include './'~result.folder~'/general/features.html.twig' %}        
+    </section>
+    <!-- Testimonial and Clients End -->
+    
+    <!-- Footer Start -->
+    <footer>        
+        <!-- Foot Note Start -->
+        <div id="contactenos" class="foot-note">
+            <div class="container">
+                <div
+                    class="footer-content text-center text-lg-left d-lg-flex justify-content-between align-items-center">
+                    <p class="mb-0" data-aos="fade-right" data-aos-offset="0">&copy; {{ "now"|date("Y") }} 
+                        Derechos Reservados.
+                    </p>    
+                    <div class="single-widget subscribe-widget">                            
+                        <ul class="nav social-nav">
+                            {% if result.parametros is defined and result.parametros is not empty %}                            
+                                {% for parametros in json_decode(result.parametros) %}
+                                    {% set validateRedes = 0 %}
+                                    {% for index, parametro in parametros %}
+                                        {% if index == 'redes' %}                
+                                            {% set validateRedes = 1 %}
+                                            {% for key, redes in parametro %}
+                                                <li><a href="{{ redes }}"><i class="fa fa-{{ key|lower }}"></i></a></li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}        
+                                    {% if validateRedes == 0 %}
+                                        <!-- social link -->                                    
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}                            
+                                    <!-- social link -->                                
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            {% endif %}                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Foot Note End -->
+    </footer>
+    </body>
+{% endblock %}
+
+
