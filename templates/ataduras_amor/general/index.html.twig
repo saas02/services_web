@@ -1,0 +1,136 @@
+{% extends './'~result.folder~'/base.html.twig' %}
+{% block body %}
+    {% if result.parametros is defined and result.parametros is not empty %}
+        {% set parameters = json_decode(result.parametros) %}                
+    {% endif %}
+    <body>
+        <div class="dVYIqU">
+            {% if result.whatsapp is defined and result.whatsapp is not empty %}
+                <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank">
+                    <img class="img-social-chat buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}" src="{{ absolute_url(asset('assets/'~result.folder~'/images/wp.png')) }}">
+                </a><br>
+            {% endif %}
+            {% if result.facebook is defined and result.facebook is not empty %}
+                <a href="https://m.me/{{ result.facebook }}" target="_blank">
+                    <img class="img-social-chat buttonNetwork" data-network="{{ result.notificaciones["facebook"] }}" src="{{ absolute_url(asset('assets/'~result.folder~'/images/fbmsn.png')) }}">
+                </a>                        
+            {% endif %}
+        </div>
+        <div class="wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex align-items-center">
+                        <p class="mb-0 phone pl-md-2">
+                            <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span>{{ result.telefono|capitalize }}</a>                             
+                        </p>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-md-end">
+                        <div class="social-media">
+                            <p class="mb-0 d-flex">
+                                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">{{ result.nombre|capitalize }}</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="#productos" class="nav-link">Productos</a></li>
+                        <li class="nav-item"><a href="#servicios" class="nav-link">Servicios</a></li>
+                        <li class="nav-item"><a href="#testimonios" class="nav-link">Testimonios</a></li>                        
+                        <li class="nav-item"><a href="#contactenos" class="nav-link">Contactenos</a></li>
+                        {% if result.whatsapp is defined and result.whatsapp is not empty %}                            
+                            <li class="nav-item cta">
+                                <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="nav-link buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">Consulta Gratis!</a>
+                            </li>
+                        {% endif %}                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END nav -->
+
+        <section class="hero-wrap js-fullheight" id="productos">
+            <div class="home-slider js-fullheight owl-carousel">
+                {% include './'~result.folder~'/general/productos.html.twig' %}           
+            </div>
+        </section>
+
+        <section class="ftco-section ftco-no-pb" id="servicios">
+            <div class="container">
+                <div class="row justify-content-center pb-5 mb-3">
+                    <div class="col-md-7 heading-section text-center ftco-animate">
+                        <span class="subheading">Nuestros</span>
+                        <h2>Servicios</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    {% include './'~result.folder~'/general/productos_descripcion.html.twig' %}                                        
+                </div>
+            </div>
+        </section>        
+
+        <section class="ftco-section testimony-section" id="testimonios">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center pb-5">
+                    <div class="col-md-7 heading-section heading-section-white text-center ftco-animate">                        
+                        <h2>Testimonios</h2>
+                    </div>
+                </div>
+                <div class="row ftco-animate">
+                    <div class="col-md-12">
+                        <div class="carousel-testimony owl-carousel">
+                            {% include './'~result.folder~'/general/features.html.twig' %}                                                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                        
+        {% if parameters[0].banner_message is defined %}
+            <section class="ftco-hireme bg-secondary">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-md-10 col-lg-10 d-flex align-items-center">
+                            <div class="w-100">
+                                <h2>{{ parameters[0].banner_message }}</h2>
+                            </div>
+                        </div>
+                        {% if result.whatsapp is defined and result.whatsapp is not empty %}
+                            <div class="col-md-2 col-lg-2 d-flex align-items-center justify-content-end">
+                                <p class="mb-0">                                    
+                                    <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="btn btn-primary py-3 px-4 buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">Consulta Gratis!</a>
+                                </p>
+                            </div>                            
+                        {% endif %}
+                        
+                    </div>
+                </div>
+            </section>
+        {% endif %}       
+        
+        
+
+        <footer class="footer" id="contactenos">
+            {% include './'~result.folder~'/general/footer.html.twig' %} 
+        </footer>
+
+        <!-- loader -->
+        <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+    {% endblock %}
+
+

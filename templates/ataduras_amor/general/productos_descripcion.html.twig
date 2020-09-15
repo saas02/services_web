@@ -1,0 +1,18 @@
+{% if result.productos is defined and result.productos is not empty %}
+    {% for productos in result.productos %}
+        <div class="col-md-6 col-lg-3">
+            <div class="causes causes-2 text-center ftco-animate">
+                <a href="#" class="img w-100" style="background-image: url({{ absolute_url(asset('assets/'~result.folder~'/images/'~productos.fotos))}});"></a>
+                <div class="text p-3">
+                    {% if result.whatsapp is defined and result.whatsapp is not empty %}
+                        <p>
+                            <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="btn btn-light w-100 buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">Consulta Gratis!!!</a>
+                        </p>                                            
+                    {% endif %} 
+                    <h2>{{ productos.nombre|capitalize }}</h2>
+                    <p>{{ productos.descripcion|capitalize }}</p>                                       
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
