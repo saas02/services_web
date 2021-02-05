@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>                
+        <title>{% block title %}Amarres{% endblock %}</title>
+        <meta charset="utf-8" />
+        <meta name="keywords" content="amarres de amor" />
+        <meta name="description" content="amarres de amor" />  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{{ absolute_url(asset('assets/'~result.folder~'/imgs/favicon.png')) }}">
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/bootstrap.min.css')) }}" rel="stylesheet" />                
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/fontawesome.min.css')) }}" rel="stylesheet" />
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/style.css')) }}" rel="stylesheet" />        
+    </head>
+    <body>
+    {% block body %} {% endblock %}
+    {% block javascripts %}        
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery-3.3.1.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/bootstrap.min.js')) }}"></script>        
+        {% if result.parametros is defined and result.parametros is not empty %}
+            {% set parameters = json_decode(result.parametros) %}                
+        {% endif %}
+        {% if app.environment != 'dev' and parameters[0].analytics is defined %}            
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ parameters[0].analytics }}"></script>
+            <script>                
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '{{parameters[0].analytics}}');
+            </script>
+        {% endif %}
+        {{ encore_entry_script_tags('app') }}
+        <script>
+            $(function () {
+                'use strict';
+                var winH = $(window).height();
+                $('header').height(winH);
+                $('header .container > div').css('top', (winH / 2) - ($('header .container > div').height() / 2));
+                $('.navbar ul li a.search').on('click', function (e) {
+                    e.preventDefault();
+                });
+                $('.navbar a.search').on('click', function () {
+                    $('.navbar form').fadeToggle();
+                });
+                $('.navbar ul.navbar-nav li a').on('click', function (e) {
+                    var getAttr = $(this).attr('href');
+                    e.preventDefault();
+                    $('html').animate({scrollTop: $(getAttr).offset().top}, 1000);
+                });
+            })
+        </script>
+    {% endblock %}
+</body>
+</html>

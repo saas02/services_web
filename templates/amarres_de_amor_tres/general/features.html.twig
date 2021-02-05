@@ -1,0 +1,13 @@
+{# empty Twig template #}
+{% if result.aliados is defined %}
+    {% for key, aliado in result.aliados %}    
+        <div class="col-md-4 col-sm-4">
+            <div class="what-we-item ">
+                <!-- heading with icon -->
+                <h3><i class="fa fa-heart"></i> {{ aliado.nombre }}</h3>
+                <!-- paragraph -->
+                <p>{{ aliado.informacion }}.</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

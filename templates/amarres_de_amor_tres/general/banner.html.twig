@@ -1,0 +1,43 @@
+{# empty Twig template #}
+{% if result.productos is defined and result.productos is not empty %}    
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            {% set count = 0 %}
+            {% for producto in result.productos %}
+                <div class="item {% if count == 0 %}active{% endif %}">
+                    <img src="{{ absolute_url(asset('assets/'~result.folder~'/img/banner/b'~producto.fotos)) }}" alt="...">
+                    <div class="container">
+                        <!-- banner caption -->
+                        <div class="carousel-caption slide-one">
+                            <!-- heading -->
+                            <h2 class="animated fadeInLeftBig"><i class="fa fa-heart"></i> {{ producto.nombre|capitalize }}!</h2>
+                            <!-- paragraph -->                    
+                            <!-- button -->                    
+                            {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                                <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                                    Consulta Gratis
+                                </a>                        
+                            {% endif %}
+                            {% if result.facebook is defined and result.facebook is not empty %}
+                                &nbsp;&nbsp; 
+                                <a href="https://api.whatsapp.com/send?phone=+57{{ result.facebook }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["facebook"] }}">                            
+                                    Consulta Gratis!!!                            
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% set count = count + 1 %}
+            {% endfor %}          
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="fa fa-arrow-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="fa fa-arrow-right" aria-hidden="true"></span>
+        </a>
+    </div>
+{% endif %}
