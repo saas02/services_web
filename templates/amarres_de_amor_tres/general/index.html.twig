@@ -7,6 +7,18 @@
     <body>        
     <body>
         <div id="header" class="header">
+            <div class="dVYIqU">
+                {% if result.whatsapp is defined and result.whatsapp is not empty %}
+                    <a href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank">
+                        <img class="img-social-chat buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/wp.png')) }}">
+                    </a><br>
+                {% endif %}
+                {% if result.facebook is defined and result.facebook is not empty %}
+                    <a href="https://m.me/{{ result.facebook }}" target="_blank">
+                        <img class="img-social-chat buttonNetwork" data-network="{{ result.notificaciones["facebook"] }}" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/fbmsn.png')) }}">
+                    </a>                        
+                {% endif %}
+            </div>
             <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
                 <div class="container">
                     <a class="navbar-brand" href="#"><img src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/logo.png')) }}" alt="#" /></a>
@@ -52,9 +64,10 @@
                     <div class="carousel-item active">
                         <img class="d-block w-100" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/slide1.jpg')) }}" alt="slider_img">
                         <div class="ovarlay_slide_cont">
-                            <h2>We love working</h2>
-                            <h4>Maintenance service</h4>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years</p>                            
+                            <h2>HECHIZOS DE AMOR</h2>                            
+                            <p>
+                                Un amarre de amor es un tipo de conjuro que según algunas tradiciones mágicas y folclóricas es capaz de generar en la persona recipiente del ritual, sentimientos de amor hacia la persona que lo realiza. los amarres de amor son tradicionales en muchas culturas latinoamericanas y caribeñas, donde se mezclan con elementos de vudú y otras tradiciones mágicas locales. la existencia de los efectos de los amarres de amor así como de otras formas de magia se encuentran discutidos por la ciencia moderna ya que no se observan utilizando el método científico.
+                            </p>                            
                             {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
                                 <a class="blue_bt" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
                                     Consulta Gratis
@@ -65,19 +78,29 @@
                     <div class="carousel-item">
                         <img class="d-block w-100" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/slide2.jpg')) }}" alt="slider_img">
                         <div class="ovarlay_slide_cont">
-                            <h2>We love working</h2>
-                            <h4>Maintenance service</h4>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years</p>
-                            <a class="blue_bt" href="#">See Our Service</a>
+                            <h2>ATRACCIÓN DE PAREJA</h2>                            
+                            <p>
+                                La atracción en el amor o la atracción sentimental es el mismo enamoramiento que está bien explicado en decodificando el amor. muchas personas preguntan si hay diferencia entre atracción y enamoramiento y en mi opinión basada en la experta del amor helen fisher, son prácticamente casi lo mismo desde el punto de vista cerebral. en la atracción y en el amor la misma dopamina está encargada ahora de magnificar y entusiasmar a la persona de una manera exagerada que traspasa la parte física y se convierte en una droga que junto a la vasopresina, la noradrenalina y la oxitocina van a permitir que ocurra casi que una ensoñación y una excitación muy parecida incluso a la que se tiene con la cocaína.
+                            </p>
+                            {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                                <a class="blue_bt" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                                    Consulta Gratis
+                                </a>                   
+                            {% endif %}
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/slide3.jpg')) }}" alt="slider_img">
                         <div class="ovarlay_slide_cont">
-                            <h2>We love working</h2>
-                            <h4>Maintenance service</h4>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years</p>
-                            <a class="blue_bt" href="#">See Our Service</a>
+                            <h2>RITUAL DE ATRACCIÓN</h2>                            
+                            <p>
+                                Un ritual es una serie de acciones realizadas principalmente por su valor simbólico. son acciones que están basadas en alguna creencia, ya sea una religión, una ideología política, un acto deportivo, las tradiciones, los recuerdos o la memoria histórica de una comunidad, etc. el término "rito" proviene del latín ritus.en psicología, el término "ritual", en ocasiones se refiere a una acción o serie de acciones que una persona realiza en un contexto dado que no tienen otro propósito o razón aparente. el término puede referirse especialmente a comportamientos compulsivos de personas que padecen el trastorno obsesivo-compulsivo (t.o.c). sigmund freud habló de los rituales como actividades que permitían a los individuos que las practicaban liberar sus tensiones.
+                            </p>
+                            {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                                <a class="blue_bt" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                                    Consulta Gratis
+                                </a>                   
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -93,9 +116,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-5">
-                        <h4>ABOUT BLUESKY</h4>
-                        <h3 style="text-transform: none !important">We Build for Your Comfort</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <h4>Amarres de amor</h4>
+                        <h3 style="text-transform: none !important">Nosotros</h3>
+                        <p>
+                            Nosotros con nuestro conocimiento, fé y sabiduría ofrecemos asesorías y orientación para que usted pueda posiblemente encontrar una solución para trasformar su vida para que la felicidad y todo lo que se proponga sea exitoso. Contamos con muchos años de experiencia y conocimiento en los que hemos ayudado a personas regresando a sus seres amados, expertos en amarres de amor con magia blanca, Hechizos de Amor, Rituales de atracción, Amarres de Amor del mismo Sexo, Conjuros para enamorar, Endulzamientos, Alejamientos, Limpieza Energética, Magia Blanca
+                        </p>
                     </div>
                     <div class="col-md-6 offset-md-1">
                         <div class="full text_align_center">
@@ -106,156 +131,13 @@
             </div>
         </div>
         <div id="hiw" class="hiw_section layout_padding" style="background: #1a2428;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <h3 class="white_font">How it's Works</h3>
-                        <p class="white_font">adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
-                    </div>
-                    <div class="col-md-5">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/blog1.jpg')) }}" alt="#" />
-                        <h3 class="blog_head">
-                            Book Online
-                            {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
-                                <br>
-                                <a class="" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
-                                    Consulta Gratis
-                                </a>
-                            {% endif %}
-                        </h3>
-                    </div>
-                    <div class="col-md-4">
-                        <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/blog2.jpg')) }}" alt="#" />
-                        <h3 class="blog_head">
-                            Confirmation
-                            {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
-                                <br>
-                                <a class="" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
-                                    Consulta Gratis
-                                </a>
-                            {% endif %}
-                        </h3>
-                    </div>
-                    <div class="col-md-4">
-                        <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/blog3.jpg')) }}" alt="#" />
-                        <h3 class="blog_head">
-                            Work Status
-                            {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
-                                <br>
-                                <a class="" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
-                                    Consulta Gratis
-                                </a>
-                            {% endif %}
-                        </h3>
-                    </div>
-                </div>
-            </div>
+            {% include './'~result.folder~'/general/banner.html.twig' %} 
         </div>
         <div id="service" class="hiw_section layout_padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <h3>Nuestros Servicios</h3>                                                
-                    </div>
-                    <div class="col-md-5">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8 service_blog">                        
-                        {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
-                            <a class="blue_bt button_consulta" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
-                                Consulta Gratis
-                            </a>
-                        {% endif %}
-                        <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/s1.jpg')) }}" alt="#" />                        
-                        <h3 class="blog_head">
-                            Hechizos de amor                            
-                        </h3>                        
-                    </div>
-                        
-                    <div class="col-md-4 service_blog">
-                        {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
-                            <a class="blue_bt button_consulta" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
-                                Consulta Gratis
-                            </a>
-                        {% endif %}
-                        <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/s2.jpg')) }}" alt="#" />
-                        <h3 class="blog_head">
-                            Atracción de pareja
-                        </h3>
-                    </div>
-                    <div class="col-md-4 service_blog">
-                        {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
-                            <a class="blue_bt button_consulta" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
-                                Consulta Gratis
-                            </a>
-                        {% endif %}
-                        <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/s3.jpg')) }}" alt="#" />
-                        <h3 class="blog_head">Ritual de atracción</h3>
-                    </div>
-                    <div class="col-md-4 service_blog">
-                        {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
-                            <a class="blue_bt button_consulta" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
-                                Consulta Gratis
-                            </a>
-                        {% endif %}
-                        <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/s4.jpg')) }}" alt="#" />
-                        <h3 class="blog_head">Amarres de amor</h3>
-                    </div>
-                    <div class="col-md-4 service_blog">
-                        {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
-                            <a class="blue_bt button_consulta" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
-                                Consulta Gratis
-                            </a>
-                        {% endif %}
-                        <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/s5.jpg')) }}" alt="#" />
-                        <h3 class="blog_head">Work Status</h3>
-                    </div>
-                </div>
-            </div>
+            {% include './'~result.folder~'/general/servicios.html.twig' %} 
         </div>        
-        <div id="clientes" class="hiw_section layout_padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text_align_center">
-                        <h3>Nuestros Clientes</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                    </div>
-                    <div class="col-md-5">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-11">
-                        <div class="full testimonial_blog">
-                            <p>Jackrok</p>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscureContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-11">
-                        <div class="full testimonial_blog">
-                            <p>Jackrok</p>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscureContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-11">
-                        <div class="full testimonial_blog">
-                            <p>Jackrok</p>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscureContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+        <div id="clientes" class="hiw_section layout_padding">            
+            {% include './'~result.folder~'/general/clientes.html.twig' %} 
         </div>
         
         <footer>

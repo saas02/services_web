@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <h3>Nuestros Servicios</h3>                                                
+        </div>
+        <div class="col-md-5">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 service_blog">                        
+            {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                <a class="blue_bt button_consulta" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                    Consulta Gratis
+                </a>
+            {% endif %}
+            <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/s1.jpg')) }}" alt="#" />                        
+            <h3 class="blog_head">
+                Hechizos de amor                            
+            </h3>                        
+        </div>
+
+        <div class="col-md-4 service_blog">
+            {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                <a class="blue_bt button_consulta" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                    Consulta Gratis
+                </a>
+            {% endif %}
+            <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/s2.jpg')) }}" alt="#" />
+            <h3 class="blog_head">
+                Atracción de pareja
+            </h3>
+        </div>
+        <div class="col-md-4 service_blog">
+            {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                <a class="blue_bt button_consulta" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                    Consulta Gratis
+                </a>
+            {% endif %}
+            <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/s3.jpg')) }}" alt="#" />
+            <h3 class="blog_head">Ritual de atracción</h3>
+        </div>
+        <div class="col-md-4 service_blog">
+            {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                <a class="blue_bt button_consulta" href="https://api.whatsapp.com/send?phone=+57{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                    Consulta Gratis
+                </a>
+            {% endif %}
+            <img class="margin_top_30 img-responsive" src="{{ absolute_url(asset('assets/'~result.folder~'/imgs/s4.jpg')) }}" alt="#" />
+            <h3 class="blog_head">Amarres de amor</h3>
+        </div>
+
+    </div>
+</div>
