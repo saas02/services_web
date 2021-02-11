@@ -1,0 +1,58 @@
+{# empty Twig template #}
+{% extends './'~result.folder~'/base.html.twig' %}
+{% block body %}
+    {% if result.parametros is defined and result.parametros is not empty %}
+        {% set parameters = json_decode(result.parametros) %}                
+    {% endif %}
+    <body>        
+
+        <div class="gtco-loader"></div>
+
+        <div id="page">
+
+            <nav class="gtco-nav" role="navigation">
+                {% include './'~result.folder~'/general/navigation.html.twig' %} 
+            </nav>
+
+            <div class="gtco-container">
+                {% include './'~result.folder~'/general/carousel.html.twig' %} 
+            </div>
+
+            <div class="gtco-section">
+                <div class="gtco-container">
+                    <div id="nosotros" class="row">
+                        <div class="col-md-8 col-md-offset-2 gtco-heading text-center">
+                            <h2>Nosotros</h2>
+                            <p>
+                                Nosotros con nuestro conocimiento, fé y sabiduría ofrecemos asesorías y orientación para que usted pueda posiblemente encontrar una solución para trasformar su vida para que la felicidad y todo lo que se proponga sea exitoso. Contamos con muchos años de experiencia y conocimiento en los que hemos ayudado a personas regresando a sus seres amados, expertos en amarres de amor con magia blanca, Hechizos de Amor, Rituales de atracción, Amarres de Amor del mismo Sexo, Conjuros para enamorar, Endulzamientos, Alejamientos, Limpieza Energética, Magia Blanca.
+                            </p>
+                        </div>
+                    </div>
+                    <div id="servicios" class="row">                        
+                        {% include './'~result.folder~'/general/banner.html.twig' %} 
+                    </div>
+                </div>
+            </div>
+            <!-- END Work -->
+
+            <div id="clientes" class="gtco-section">
+                {% include './'~result.folder~'/general/servicios.html.twig' %} 
+            </div>
+            <!-- END  -->            
+
+            <footer id="gtco-footer" class="gtco-section" role="contentinfo">                
+                {% include './'~result.folder~'/general/footer.html.twig' %} 
+            </footer>
+            <!-- END footer -->
+
+        </div>
+
+        <div class="gototop js-top">
+            <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+        </div>
+
+
+    </body>
+
+</body>
+{% endblock %}

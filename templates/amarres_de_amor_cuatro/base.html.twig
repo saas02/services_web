@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>                
+        <title>{% block title %}Amarres{% endblock %}</title>
+        <meta charset="utf-8" />
+        <meta name="keywords" content="amarres de amor" />
+        <meta name="description" content="amarres de amor" />  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+        
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400|Montserrat:400,700" rel="stylesheet">
+        <link rel="icon" type="image/png" href="{{ absolute_url(asset('assets/'~result.folder~'/images/favicon.png')) }}">
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/animate.css')) }}" rel="stylesheet" />                
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/icomoon.css')) }}" rel="stylesheet" />
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/themify-icons.css')) }}" rel="stylesheet" />        
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/bootstrap.css')) }}" rel="stylesheet" />        
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/owl.carousel.min.css')) }}" rel="stylesheet" />        
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/owl.theme.default.min.css')) }}" rel="stylesheet" />        
+        <link href="{{ absolute_url(asset('assets/'~result.folder~'/css/style.css')) }}" rel="stylesheet" />  
+    </head>
+    <body>
+    {% block body %} {% endblock %}
+    {% block javascripts %}                        
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/modernizr-2.6.2.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.min.js')) }}"></script>        
+        
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.min.js')) }}"></script>        
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.easing.1.3.js')) }}"></script>        
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/bootstrap.min.js')) }}"></script>        
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/jquery.waypoints.min.js')) }}"></script>        
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/owl.carousel.min.js')) }}"></script>        
+        <script src="{{ absolute_url(asset('assets/'~result.folder~'/js/main.js')) }}"></script>        
+        
+        {% if result.parametros is defined and result.parametros is not empty %}
+            {% set parameters = json_decode(result.parametros) %}                
+        {% endif %}
+        {% if app.environment != 'dev' and parameters[0].analytics is defined %}            
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ parameters[0].analytics }}"></script>
+            <script>                
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '{{parameters[0].analytics}}');
+            </script>
+        {% endif %}
+        {{ encore_entry_script_tags('app') }}
+
+    {% endblock %}
+</body>
+</html>

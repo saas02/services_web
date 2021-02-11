@@ -1,0 +1,44 @@
+<div class="col-md-12">
+    <div class="owl-carousel owl-carousel-carousel">
+        <div class="item">
+            <div class="gtco-item">
+                <a href="#"><img src="{{ absolute_url(asset('assets/'~result.folder~'/images/img_1.jpg')) }}" alt="" class="img-responsive"></a>
+                <h2><a href="#">Atracción de pareja</h2></a>
+                <p class="role">
+                    {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                        <a class="btn btn-primary button_consulta" href="https://api.whatsapp.com/send?phone=+{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                            Consulta Gratis
+                        </a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="gtco-item">
+                <a href="#"><img src="{{ absolute_url(asset('assets/'~result.folder~'/images/img_2.jpg')) }}" alt="" class="img-responsive"></a>
+                <h2><a href="#">Hechizos de amor</h2></a>
+                <p class="role">
+                    {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                        <a class="btn btn-primary button_consulta" href="https://api.whatsapp.com/send?phone=+{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                            Consulta Gratis
+                        </a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="gtco-item">
+                <a href="#"><img src="{{ absolute_url(asset('assets/'~result.folder~'/images/img_3.jpg')) }}" alt="" class="img-responsive"></a>
+                <h2><a href="#">Ritual de atracción</h2></a>
+                <p class="role">
+                    {% if result.whatsapp is defined and result.whatsapp is not empty %}                        
+                        <a class="btn btn-primary button_consulta" href="https://api.whatsapp.com/send?phone=+{{ result.whatsapp }}&text=Hola!!%20Deseo%20una%20consulta%20gratis" target="_blank" class="animated fadeIn btn btn-theme buttonNetwork" data-network="{{ result.notificaciones["whatsapp"] }}">
+                            Consulta Gratis
+                        </a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</div>
